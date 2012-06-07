@@ -6,12 +6,20 @@
  * @author     John Doe
  * @package    MyApplication
  */
-class HomepagePresenter extends BasePresenter
-{
+class HomepagePresenter extends BasePresenter {
 
-	public function renderDefault()
-	{
-		$this->template->anyVariable = 'any value';
-	}
+    /** @var Ctable */
+    private $ct;
+
+    public function startup(){
+	parent::startup();
+	
+	$this->ct = $this->getService('ctable');
+    }
+
+    public function renderDefault() {
+	$this->template->childs = $this->ct->getChildsFrom(2);
+	$this->template->parents = $this->ct->getParentsFrom(4);
+    }
 
 }

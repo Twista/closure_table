@@ -9,8 +9,8 @@ common:
 		database:
 			driver: mysql
 			host: localhost
-			dbname: test
-			user:
+			dbname: closure_table
+			user: root
 			password:
 
 
@@ -33,6 +33,7 @@ common:
 
 	services:
 		database: @Nette\Database\Connection
+		ctable: Ctable (@database)
 
 		authenticator: Authenticator( @database::table(users) )
 

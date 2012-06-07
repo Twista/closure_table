@@ -32,7 +32,8 @@
 	<script> document.body.className+=' js' </script>
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
-
-	{include #content}
+	<div style="width: 90%; margin: 0 auto; border: 1px #3484D2 solid;padding: 10px;">
+	    {include #content}
+	</div>
 </body>
 </html>
